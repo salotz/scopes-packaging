@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scopes-lang/packaging/schemas/sln.schema.json",
+  "title": "Scopes List Notation",
+  "description" : "Base Scopes List Notation (SLN) schema.",
+  "type" : "array",
+  "properties" : {
+    "type" : { "$ref": "#" }
+  }
+}

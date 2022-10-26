@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scopes-lang/packaging/schemas/scopes-pkg.schema.json",
+  "title": "Scopes Package",
+  "description" : "Scopes package metadata format.",
+  "$defs": {
+    "version-range-qualifier" : {"enum": [">", "<", ">=", "<="]},
+    "version-range" : {
+      "oneOf": [
+        {"type": "array",
+         "items": false,
+         "prefixItems": [
+           {"const": "range"},
+           {"$ref": "#/$defs/version-range-qualifier" },
+           {"type": "string"}
+         ]
+        }
+      ]
+    },
+    "version-spec": {
+      "oneOf": [
+        {"type": "string"},
+        {"$ref": "#/$defs/version-range"}
+      ]
+    }
+  },
+  "type" : "array",
+  "items": false,
+  "prefixItems" : [
+    {
+      "type" : "array",
+      "items": false,
+      "prefixItems" : [
+        {"const": "package"},
+        {"type" : "array",
+         "items": false,
+         "prefixItems" : [
+           { "const": "name" },
+           { "type": "string"}
+         ]},
+        {"type" : "array",
+         "items": false,
+         "prefixItems" : [
+           { "const": "version" },
+           { "type": "string"}
+         ]},
+        {"type" : "array",
+         "items": false,
+         "prefixItems" : [
+           { "const": "license" },
+           { "type": "string"}
+         ]},
+        {"type" : "array",
+         "items": false,
+         "prefixItems" : [
+           { "const": "description" },
+           { "type": "string"}
+         ]},
+        {"type" : "array",
+         "items": false,
+         "prefixItems" : [
+           { "const": "homepage-url" },
+           { "type": "string"}
+         ]},
+        {"type" : "array",
+         "items": false,
+         "prefixItems" : [
+           { "const": "repository-url" },
+           { "type": "string"}
+         ]},
+        {"type" : "array",
+         "items": false,
+         "prefixItems" : [
+           {"const": "authors"},
+           {"type": "array",
+            "items": false,
+            "prefixItems": [
+              {"type": "string"},
+              {"type": "string"}
+            ]
+           }
+         ]},
+        {"type" : "array",
+         "items": false,
+         "prefixItems" : [
+           {"const": "maintainers"},
+           {"type": "array",
+            "items": false,
+            "prefixItems": [
+              {"type": "string"},
+              {"type": "string"}
+            ]
+           }
+         ]},
+        {"type" : "array",
+         "items": {"type": "string"},
+         "prefixItems" : [
+           {"const": "keywords"}
+         ]
+        }
+      ]
+    },
+    {
+      "type" : "array",
+      "items": false,
+      "prefixItems" : [
+        {"const": "scopes"},
+        {"type" : "array",
+         "prefixItems": [
+           {"const" : "versions"}
+         ],
+         "items": { "$ref": "#/$defs/version-spec"}
+        }
+      ]
+    }
+
+  ]
+}

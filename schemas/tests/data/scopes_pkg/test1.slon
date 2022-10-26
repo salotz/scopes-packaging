@@ -1,0 +1,21 @@
+# specify very general metadata on the project
+package
+    name wumpus
+    version 0.0.0
+    license MIT
+    description "Extended standard library for scopes"
+
+    homepage-url https://github.com/salotz/scoot
+    repository-url https://github.com/salotz/scoot.git
+    authors
+        "Samuel Lotz" samuel.lotz@salotz.info
+    maintainers
+        "Samuel Lotz" samuel.lotz@salotz.info
+    keywords
+        scopes
+        ffi
+scopes
+    versions
+        (range <= "0.18")
+        (range > "0.13")
+        "0.10"

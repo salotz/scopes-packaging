@@ -1,0 +1,8 @@
+# for checking our schemas
+jsonschema
+
+# for converting SLN to JSON
+git+https://github.com/salotz/python-sln.git
+
+# for running tests
+pytest
