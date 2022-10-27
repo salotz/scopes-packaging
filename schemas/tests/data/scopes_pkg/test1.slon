@@ -1,21 +1,63 @@
 # specify very general metadata on the project
-package
+project
     name wumpus
-    version 0.0.0
+
     license MIT
     description "Extended standard library for scopes"
 
-    homepage-url https://github.com/salotz/scoot
-    repository-url https://github.com/salotz/scoot.git
+    urls
+        homepage https://github.com/salotz/scoot
+        repository https://github.com/salotz/scoot.git
+        documentation https://github.com/salotz/scoot.git
+        something-else hello.com
+
     authors
         "Samuel Lotz" samuel.lotz@salotz.info
+        "Bob Bobson" bob@bob.com
     maintainers
         "Samuel Lotz" samuel.lotz@salotz.info
     keywords
         scopes
         ffi
+
+package
+    current-version "0.3"
+    
+    # these are the recognized other versions of the library, notice
+        you can skip past versions
+    versions "0.2" "0.0"
+
+    provides
+        modules
+            wumpus
+            other
+        bin
+            wumpus-do
+        lib
+            wumpus
+        headers
+            wumpus
 scopes
     versions
-        (range <= "0.18")
-        (range > "0.13")
+        (<= "0.18")
+        (> "0.13")
         "0.10"
+
+dependencies
+    scopes
+        cjson
+        scoot (versions :any)
+        chipmunk2d
+            versions
+                (>= "0.1")
+            (url "https://github.com/salotz/scopes-chipmunk2d")
+            (description "Scopes wrapper around the Chipmunk2D Physics library")
+
+    C
+        cjson
+    C++
+        openmm
+        klein
+    rust
+        wgpu-native
+        naga
